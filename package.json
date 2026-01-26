@@ -1,4 +1,11 @@
 {
+  "name": "mini-message-board",
+  "version": "1.0.0",
+  "description": "Odin Project Mini Message Board",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
   "dependencies": {
     "ejs": "^4.0.1",
     "express": "^5.2.1"
