@@ -1,0 +1,284 @@
+/* ===========================
+   Mini Messageboard Stylesheet
+   =========================== */
+
+:root {
+  --bg: #f4f5f7;
+  --surface: #ffffff;
+  --text: #1f2430;
+  --text-muted: #6b7280;
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --border: #e5e7eb;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --font: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 2rem 1.5rem 4rem;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* ---------- Header ---------- */
+
+h1 {
+  text-align: center;
+  margin: 0;
+}
+
+/* First h1 = site title, second h1 on each page = page heading */
+h1:first-of-type {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -0.02em;
+}
+
+h1 + h1 {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ---------- Layout container ---------- */
+
+body > ul,
+body > form,
+body > p,
+body > a {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- New Message link ---------- */
+
+body > a[href="/new"] {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 1.5rem;
+  max-width: 640px;
+  padding: 0.6rem 1.2rem;
+  background: var(--primary);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow);
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+/* Position it at the right edge of the centered column, above the list */
+h1 + h1 + a[href="/new"] {
+  margin-left: auto;
+  margin-right: calc(50% - 320px);
+}
+
+@media (max-width: 720px) {
+  h1 + h1 + a[href="/new"] {
+    margin-right: auto;
+  }
+}
+
+body > a[href="/new"]:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+/* ---------- Message list ---------- */
+
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+ul li {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+ul li:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-1px);
+}
+
+ul li strong {
+  color: var(--primary);
+  font-size: 1.05rem;
+}
+
+ul li small {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+ul li br {
+  content: "";
+  display: block;
+  margin: 0.35rem 0;
+}
+
+ul li a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+ul li a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Message Details page ---------- */
+
+body > p {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.9rem 1.25rem;
+  margin-bottom: 0.75rem;
+  box-shadow: var(--shadow);
+}
+
+body > p strong {
+  color: var(--primary);
+  margin-right: 0.35rem;
+}
+
+/* ---------- Form (New Message) ---------- */
+
+form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+form label {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+form input {
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: var(--bg);
+  color: var(--text);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+form input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+  background: var(--surface);
+}
+
+form button {
+  align-self: stretch;
+  padding: 0.75rem 1.5rem;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: var(--shadow);
+}
+
+form button:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+
+form button:active {
+  transform: translateY(0);
+}
+
+/* ---------- Back links ---------- */
+
+body > a {
+  display: table;
+  margin: 1.5rem auto 0;
+  padding: 0.55rem 1.3rem;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: var(--shadow);
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+body > a:not([href="/new"])::before {
+  content: "← ";
+}
+
+body > a:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 480px) {
+  body {
+    padding: 1.25rem 1rem 3rem;
+  }
+
+  h1:first-of-type {
+    font-size: 1.4rem;
+  }
+
+  form,
+  ul li,
+  body > p {
+    padding: 1rem;
+  }
+}

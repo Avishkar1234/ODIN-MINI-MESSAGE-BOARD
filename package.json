@@ -4,12 +4,13 @@
   "description": "Odin Project Mini Message Board",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "nodemon app.js"
   },
   "dependencies": {
     "dotenv": "^17.2.3",
     "ejs": "^4.0.1",
     "express": "^5.2.1",
+    "nodemon": "^3.1.14",
     "pg": "^8.18.0"
   }
 }

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Mini Messageboard</title>
+    <link rel="stylesheet" href="/style.css">
   </head>
   <body>
     <h1><%= title %></h1>
@@ -11,11 +12,11 @@
     <ul>
       <% messages.forEach((message, index) => { %>
         <li>
-          <strong><%= message.user %></strong>: <%= message.text %>
+          <strong><%= message.user_name %></strong>: <%= message.text %>
           <br>
           <small><%= message.added.toLocaleString() %></small>
           <br>
-          <a href="/message/<%= index %>">Open</a>
+          <a href="/message/<%= message.id %>">Open</a>
         </li>
       <% }) %>
     </ul>

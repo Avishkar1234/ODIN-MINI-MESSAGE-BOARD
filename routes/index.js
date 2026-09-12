@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const { getAllMessages, insertMessage, getMessageById } = require("../db/queries");
+const {
+  getAllMessages,
+  insertMessage,
+  getMessageById,
+} = require("../db/queries");
 
 // Show all messages (homepage)
 router.get("/", async (req, res) => {
